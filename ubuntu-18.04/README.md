@@ -70,6 +70,7 @@ history 명령어를 자주 쓰는데 시간까지 보고 싶어서 설정
   $ source ~/.bashrc
     
   ~~~
+
 ## 5. TYPORA설치
 
 md 파일 에디터 typora를 설치한다.
@@ -115,6 +116,4 @@ $ code
 현재 디렉토리에 해당하는 파일을 열어보고 싶으면 code . 을 입력하면 된다.
 
 Theme 변경 --> ctrl + shift + p 누르고 theme 입력 --> color theme 선택 후 monaki 선택
-
-
 
