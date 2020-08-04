@@ -14,7 +14,7 @@ Ubuntu 18.04, NVIDIA GPU (GTX-1660Ti) 사양에서 설치 진행
 
    https://www.nvidia.co.kr/Download/index.aspx?lang=kr
 
-   나의 경우, nvidia-430을 설치한다.
+   나의 경우, nvidia-440을 설치한다.
 
    ~~~
    $ sudo add-apt-repository ppa:graphics-drivers/ppa
