@@ -188,7 +188,7 @@ $ source ~/.bashrc
 
    ~~~
    # terminal 2
-   $ cd autoware-simuatlr/carla-autoware/autoware_launch
+   $ cd autoware-simulator/carla-autoware/autoware_launch
    $ roslaunch devel.launch
    ~~~
 
