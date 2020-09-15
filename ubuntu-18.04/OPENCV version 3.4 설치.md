@@ -54,8 +54,8 @@ Ubuntu 18.04 LTS에서 OPENCV 설치하기
 ## 3. OpenCV 컴파일 전 필요한 패키지 설치
 
 ~~~
-$ sudo apt-get install build-essential cmake
-$ sudo apt-get install pkg-config
+$ sudo apt -y install build-essential cmake
+$ sudo apt -y install pkg-config
 
 # For still images
 $ sudo apt -y install libjpeg-dev libtiff5-dev libjasper-dev libpng-dev
@@ -71,7 +71,7 @@ $ sudo apt -y install libgtk-3-dev
 
 # Optimization, Python3, etc.
 $ sudo apt -y install libatlas-base-dev libeigen3-dev gfortran
-$ sudo apt-get -y install mesa-utils libgl1-mesa-dri libqt4-opengl-dev
+$ sudo apt -y install mesa-utils libgl1-mesa-dri libqt4-opengl-dev
 $ sudo apt -y install python-numpy python3-dev python3-numpy libtbb2 libtbb-dev
 ~~~
 

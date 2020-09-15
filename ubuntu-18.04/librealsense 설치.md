@@ -85,7 +85,7 @@ $ cd ..
 
   ~~~
   확인 안되어 있으면
-  $ sudo apt-get install ros-kinetic-ddynamic-reconfigure
+  $ sudo apt-get install ros-melodic-ddynamic-reconfigure
   ~~~
 
 ```

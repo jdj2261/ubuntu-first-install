@@ -53,7 +53,7 @@ Ubuntu 18.04, NVIDIA GPU (GTX-1660Ti) 사양에서 설치 진행
 2. 다운로드 경로로 들어가 run파일 실행
 
    ~~~
-   $ sudo sh cuda_10.1.105_418.39_linux.run
+   $ sudo sh cuda_10.0.130_410.48_linux.run
    ~~~
 
    입력 시 나오는 라이센스 문구는 Ctrl + c를 입력하여 한번에 넘긴다.
