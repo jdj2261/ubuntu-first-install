@@ -22,3 +22,11 @@ $ sudo rosdep init
 $ rosdep update
 ~~~
 
+
+
+- Install dependencies using rosdep
+
+~~~
+rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+~~~
+

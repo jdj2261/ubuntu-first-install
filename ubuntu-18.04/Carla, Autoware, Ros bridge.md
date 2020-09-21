@@ -119,7 +119,7 @@ Carla 0.9.6, autoware 1.12, carla-autoware, carla-ros-bridge를 설치한다.
    ~~~
    $ cd ~/autoware-simulator
    $ git clone https://github.com/jdj2261/carla-autoware.git
-   $ cd catkin_ws/src
+   $ cd carla-autoware/catkin_ws/src
    $ catkin_init_workspace
    $ cd .. && catkin_make
    ~~~
@@ -128,8 +128,8 @@ Carla 0.9.6, autoware 1.12, carla-autoware, carla-ros-bridge를 설치한다.
 
    ~~~
    $ cd ~/autoware-simulator/carla-autoware
-   $ mkdir -p autoware_data/maps && cd maps
-   $ cp -r ~/autoware-simulator/Carla-0.9.3/HDMaps/Town0* .
+   $ mkdir -p autoware_data/maps && cd autoware_data/maps
+   $ cp -r ~/autoware-simulator/Carla-0.9.6/HDMaps/Town0* .
    ~~~
 
    
