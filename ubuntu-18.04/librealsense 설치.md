@@ -106,5 +106,57 @@ $ roslaunch realsense2_camera rs_camera.launch
 
 
 
+## 3. SLAM with D435i
+
+D435i Slam 패키지를 사용하기 위해서 4 가지의 노드가 필요합니다.
+
+- realsense2_camera
+- imu_filter_madgwick
+- rtabmap_ros
+- robot_localization
 
 
+
+### 1) 설치방법
+
+설치 방법은 아래 내용과 같습니다.
+
+**realsense2_camera:** Follow the installation guide in: https://github.com/intel-ros/realsense.
+**imu_filter_madgwick:** `sudo apt-get install ros-melodic-imu-filter-madgwick`
+**rtabmap_ros:** `sudo apt-get install ros-melodic-rtabmap-ros`
+**robot_localization:** `sudo apt-get install ros-melodic-robot-localization`
+
+
+
+### 2) 실행
+
+```
+$ roslaunch realsense2_camera opensource_tracking.launch
+```
+
+
+
+### 3) 맵 저장
+
+- map server  이용
+
+  ~~~
+  $ rosrun map_server map_server map:=/rtapmap/proj_map -f my_map_1
+  ~~~
+
+- pcl ros 이용
+
+  ~~~
+  $ rosrun pcl_ros pointcloud_to_pcd input:=/rtabmap/cloud_map
+  ~~~
+
+  포인트 클라우드를 계속 저장하므로 첫 번째 파일 저장 한 후 ctrl + C를 눌러 중지해야 함.
+
+  저장된 pcd 파일을 보려면 pcl viewer 설치
+
+  ~~~
+  $ sudo apt-get install pcl-tools
+  $ pcl_viewer test.pcd
+  ~~~
+
+  
