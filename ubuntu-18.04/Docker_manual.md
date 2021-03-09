@@ -233,6 +233,16 @@ $ sudo apt-get update & sudo apt-get install -y nvidia-container-toolkit
 $ sudo systemctl restart docker
 ```
 
+### 6. Docker 파일 복사
+
+#### 6-1. Host -> Container
+
+- docker cp [host 파일경로]  [container name]:[container 내부 경로]
+
+~~~
+$ sudo docker cp yolov3_pytorch:/usr/src/app/runs/detect/exp /home/djjin/share
+~~~
+
 
 
 # Pytorch 컨테이너 만들기
@@ -266,13 +276,17 @@ $ docker run -itd --name pytorch -v /home/djjin/share:/root/share -p 8888:8888 -
 > - -v : 내가 만든 share 폴더에 있는 파일들을 pytorch 컨테이너의 share 폴더와 공유
 > - -p : local host의 8888포트와 pytorch 컨테이너의 8888포트를 연결해준다
 > - --restart=alwayas : 매번 docker start 명령어 입력하는게 번거로우니 이 옵션을 추가한다.
-> - 
+
+~~~
+$ nvidia-docker run -it --device=/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 --ipc=host --gpus all ultralytics/yolov3:v8.0_archive
+~~~
 
 ### 5. Pytorch 컨테이너 실행하기
 
-~~~
-$ docker exec -it pytorch bash
-~~~
+> ~~~
+> $ docker exec -it pytorch bash
+> ~~~
+>
 
 ### 6. GPU 동작 확인하기
 
