@@ -277,10 +277,6 @@ $ docker run -itd --name pytorch -v /home/djjin/share:/root/share -p 8888:8888 -
 > - -p : local host의 8888포트와 pytorch 컨테이너의 8888포트를 연결해준다
 > - --restart=alwayas : 매번 docker start 명령어 입력하는게 번거로우니 이 옵션을 추가한다.
 
-~~~
-$ nvidia-docker run -it --device=/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 --ipc=host --gpus all ultralytics/yolov3:v8.0_archive
-~~~
-
 ### 5. Pytorch 컨테이너 실행하기
 
 > ~~~
@@ -445,3 +441,61 @@ $ docker image tag pytorch_distribution_test:1 djjin/pytorch_distribution_test:1
   번호를 순차적으로 입력한다.
 
 - "Extension" 에서 Python을 설치하면 jupyter notebook을 이용할 수 있다.
+
+# Docker로 yolov3 실행하기
+
+[yolov3 github](https://github.com/ultralytics/yolov3)
+
+[yolov3 docker](https://hub.docker.com/r/ultralytics/yolov3)
+
+### 1. Docker 이미지 다운로드
+
+- 가장 최신 버전의 이미지를 받았더니 결과가 제대로 안나와서 8.0 버전의 이미지를 받음.
+
+~~~
+$ docker pull ultralytics/yolov3:v8.0_archive
+~~~
+
+### 2. Docker 컨테이너 실행
+
+- Pytorch 컨테이너 만들 때처럼 똑같이 해도 상관없으나 필자의 경우 opencv를 실행하고자 몇가지 옵션을 추가함.
+
+~~~
+$ docker run -it --device=/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 --ipc=host --gpus all ultralytics/yolov3:v8.0_archive
+~~~
+
+- 추가 옵션
+
+>  --device=/dev/video0
+>
+> -v /tmp/.X11-unix:/tmp/.X11-unix
+>
+> -e DISPLAY=$DISPLAY
+>
+> -e QT_X11_NO_MITSHM=1
+
+### 3. GUI 환경 연결
+
+- 다른 터미널을 열어 호스트에서 도커가 xserver와 통신할 수 있도록 설정한다.
+
+~~~
+$ xhost +local:docker
+~~~
+
+### 4. 데모 실행
+
+- Readme 파일에 나오는 명령어 그대로 입력하면 된다.
+
+  - webcam 실행
+
+  ~~~
+  $ python detect.py --source 0 
+  ~~~
+
+  - 이미지 파일
+
+  ```
+  $ python detect.py $(파일이름 or 디렉토리 or 생략)
+  ```
+
+  
