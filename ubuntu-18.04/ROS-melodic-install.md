@@ -4,7 +4,7 @@
 
 ubuntu 18.04 melodic 버전 ROS 설치 매뉴얼
 
-http://wiki.ros.org/kinetic/Installation/Ubuntu
+http://wiki.ros.org/melodic/Installation/Ubuntu
 
 [TOC]
 
