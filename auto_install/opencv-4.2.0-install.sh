@@ -50,13 +50,15 @@ setup () {
 }
 
 git_source () {
-    echo "${Light_Cyan}Getting version '$1' of OpenCV${NC}"
+    echo -e "${Light_Cyan}Getting version '$1' of OpenCV${NC}"
     git clone --depth 1 --branch "$1" https://github.com/opencv/opencv.git
     git clone --depth 1 --branch "$1" https://github.com/opencv/opencv_contrib.git
 }
 
 install_dependencies () {
-    echo "${Light_Cyan}Installing build dependencies.${NC}"
+    echo -e "${Light_Cyan}Installing build dependencies.${NC}"
+
+    sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
     sudo apt update
     sudo apt -y upgrade
     sudo apt -y install \
@@ -67,28 +69,28 @@ install_dependencies () {
         libtiff5-dev \
         libjasper-dev \
         libpng-dev \
-        libavcodec-dev 
-        libavformat-dev 
-        libswscale-dev
-        libdc1394-22-dev 
-        libxvidcore-dev 
-        libx264-dev x264
-        libxine2-dev 
-        libv4l-dev v4l-utils
-        libgstreamer1.0-dev 
-        libgstreamer-plugins-base1.0-dev
-        libgtk-3-dev
-        libatlas-base-dev 
-        libeigen3-dev 
-        gfortran
-        mesa-utils 
-        libgl1-mesa-dri 
-        libqt4-opengl-dev
-        python-numpy 
-        python3-dev 
-        python3-numpy 
-        libtbb2 
-        libtbb-dev
+        libavcodec-dev \
+        libavformat-dev \
+        libswscale-dev \
+        libdc1394-22-dev \
+        libxvidcore-dev \
+        libx264-dev x264 \
+        libxine2-dev \
+        libv4l-dev v4l-utils \
+        libgstreamer1.0-dev \
+        libgstreamer-plugins-base1.0-dev \
+        libgtk-3-dev \
+        libatlas-base-dev \
+        libeigen3-dev \
+        gfortran \
+        mesa-utils \
+        libgl1-mesa-dri \
+        libqt4-opengl-dev \
+        python-numpy \
+        python3-dev \
+        python3-numpy \
+        libtbb2 \
+        libtbb-dev 
 }
 
 configure () {
