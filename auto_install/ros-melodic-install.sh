@@ -24,7 +24,8 @@ func_melodic_install()
     sudo apt -y install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
     sudo rosdep init
     rosdep update
-}func_melodic_install
+}
+func_melodic_install
 
 echo -e "${Light_BLUE}Finished ROS melodic install${NC}"
 sleep 1
