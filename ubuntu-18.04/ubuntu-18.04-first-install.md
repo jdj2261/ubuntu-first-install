@@ -116,3 +116,10 @@ $ code
 
 Theme 변경 --> ctrl + shift + p 누르고 theme 입력 --> color theme 선택 후 monaki 선택
 
+## 9. Time setting
+
+~~~
+$ timedatectl set-local-rtc 1
+$ echo "UTC=no" | sudo tee /etc/default/rcS
+~~~
+
