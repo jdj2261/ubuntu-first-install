@@ -123,3 +123,14 @@ $ timedatectl set-local-rtc 1
 $ echo "UTC=no" | sudo tee /etc/default/rcS
 ~~~
 
+## 10. HDD 마운트 
+
+~~~
+# UUID 확인
+$ ls -l /dev/disk/by-uuid
+>>> B226FA2B26F9F069
+$ sudo vi /etc/fstab
+UUID=B226FA2B26F9F069   /DATA   ntfs    defaults,fmask=0133,dmask=0022,uid=1000,gid=1000        0       0
+복사 후 재부팅
+~~~
+
