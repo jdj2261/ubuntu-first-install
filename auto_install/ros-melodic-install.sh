@@ -13,6 +13,7 @@ NC='\033[0m' # No Color
 echo -e "${Light_Cyan}-- Install ROS Melodic Version --${NC}"
 sleep 1
 
+StartTime=$(date +%s)
 func_melodic_install()
 {
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -29,3 +30,8 @@ func_melodic_install
 
 echo -e "${Light_BLUE}Finished ROS melodic install${NC}"
 sleep 1
+
+source ~/.bashrc
+EndTime=$(date +%s)
+echo "It takes $(($EndTime - $StartTime)) seconds to complete this task."
+
