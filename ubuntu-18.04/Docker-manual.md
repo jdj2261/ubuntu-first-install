@@ -22,7 +22,7 @@ Docker 설치 및 실행 (참고 : [도커설치방법](https://blog.cosmosfarm.
 
 ~~~
 $ sudo apt update
-$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+$ sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 $ sudo apt update
@@ -282,7 +282,6 @@ $ docker run -itd --name pytorch -v /home/djjin/share:/root/share -p 8888:8888 -
 > ~~~
 > $ docker exec -it pytorch bash
 > ~~~
->
 
 ### 6. GPU 동작 확인하기
 
