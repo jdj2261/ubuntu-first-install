@@ -51,3 +51,11 @@ $ conda install pkg
 ~~~
 $ conda env remove -n mytest
 ~~~
+
+### 가상환경 이름 변경
+
+~~~
+$ conda create --name new_name --clone old_name
+$ conda remove --name old_name --all
+~~~
+
