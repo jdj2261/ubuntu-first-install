@@ -134,3 +134,82 @@ UUID=B226FA2B26F9F069   /DATA   ntfs    defaults,fmask=0133,dmask=0022,uid=1000,
 복사 후 재부팅
 ~~~
 
+## 11. grub 및 로그인 이미지 변경
+
+- reference
+
+  👉 [grub 이미지 변경](https://ming9mon.tistory.com/8)
+
+  👉 [로그인 배경화면 변경 방법](https://brown.ezphp.net/entry/%EC%9A%B0%EB%B6%84%ED%88%AC-1804-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EB%B0%B0%EA%B2%BD%ED%99%94%EB%A9%B4-%EB%B3%80%EA%B2%BD%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+
+- grub 이미지 변경
+
+  ~~~shell
+  $ sudo apt install -y gimp
+  ~~~
+
+  👉 gimp 실행 후 열기 -> 설정할 사진 클릭 -> 다른 이름으로 내보내기 -> 파일 유형 선택에서 TarGY 이미지로 내보내기
+
+  👉 변경할 tga 이미지를 /boot/grub로 복사 또는 이동
+
+  ~~~shell
+  $ sudo update-grub
+  $ reboot
+  ~~~
+
+- 로그인 화면 변경
+
+  ~~~
+  $ sudo vi /usr/share/gnome-shell/theme/ubuntu.css
+  ~~~
+
+  👉 lockDialogGroup 검색
+
+  ~~~
+  #lockDialogGroup {  
+    background: #2c001e url(resource:///org/gnome/shell/theme/noise-texture.png);  
+    background-repeat: repeat; }
+  ~~~
+
+  이 부분을 수정하면 된다. 
+
+  ~~~
+  #lockDialogGroup {
+    background: #2c001e url(file:///usr/share/backgrounds/lock.jpg);
+    background-position: 0 0;
+    background-repeat: repeat; }
+  ~~~
+
+## 12. 듀얼 모니터 터치 스크린 설정
+
+- reference
+
+  👉 [터치스크린 설정](https://networks.guru/2018/11/23/using-dual-monitor-dual-touch-screens-on-ubuntu/)
+
+  ~~~shell
+  $ xinput
+   CoolTouch System id=11 [slave pointer (2)]
+  $ xinput map-to-output 11 HDMI-1-1
+  ~~~
+
+  로그인 시 자동 시작
+
+  ~~~shell
+  $ echo "xinput map-to-output 11 HDMI-1-1" | sudo tee /usr/local/bin/align_touchinput
+  
+  $ chmod +x /usr/local/bin/align_touchinput
+  
+  $ cat << EOF > ~/.config/autostart/align_touchinput.desktop
+  [Desktop Entry]
+  Categories=System;Input;Touch
+  Comment=align touch input
+  Exec=/usr/local/bin/align_touchinput
+  Name=align_touchinput
+  Type=Application
+  EOF
+  
+  $ reboot
+  ~~~
+
+  
+
