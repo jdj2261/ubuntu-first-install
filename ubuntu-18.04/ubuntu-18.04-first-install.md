@@ -211,5 +211,3 @@ UUID=B226FA2B26F9F069   /DATA   ntfs    defaults,fmask=0133,dmask=0022,uid=1000,
   $ reboot
   ~~~
 
-  
-

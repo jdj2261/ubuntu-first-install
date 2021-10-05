@@ -116,7 +116,7 @@ $ sudo apt -y install python-numpy python3-dev python3-numpy libtbb2 libtbb-dev
    ~~~
    -- Configuring done
    -- Generating done
-   -- Build files have been written to: /home/webnautes/opencv/opencv-3.4.0/build
+   -- Build files have been written to: /home/webnautes/opencv/opencv-4.2.0/build
    ~~~
 
    Python 2 또는 Python 3 라이브러리 항목이 보이지 않을 경우
@@ -175,7 +175,7 @@ $ sudo apt -y install python-numpy python3-dev python3-numpy libtbb2 libtbb-dev
 
    ~~~
    $ pkg-config --modversion opencv
-   3.4.0
+   4.2.0
    ~~~
 
 2. c++ 예제 코드 실행
